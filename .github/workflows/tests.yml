@@ -1,0 +1,18 @@
+name: Tests
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup Mint Swift Package Manager
+        uses: irgaly/setup-mint@v1.1.1
+
+      - name: Run Config Validator Tests
+        run: ./configValidator.sh -t
