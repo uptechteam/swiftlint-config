@@ -1,10 +1,7 @@
-# Revised for 0.50.3
+# Revised for 0.54.0
 # Rule Directory Reference - https://realm.github.io/SwiftLint/rule-directory.html
 opt_in_rules:
-  - accessibility_label_for_image
-  - accessibility_trait_for_button
   - anonymous_argument_in_multiline_closure
-  - anyobject_protocol
   - attributes
   - balanced_xctest_lifecycle
   - closure_body_length
@@ -18,6 +15,7 @@ opt_in_rules:
   - contains_over_first_not_nil
   - contains_over_range_nil_comparison
   - convenience_type
+  - direct_return
   - discarded_notification_center_observer
   - discouraged_assert
   - discouraged_none_name
@@ -42,7 +40,6 @@ opt_in_rules:
   - identical_operands
   - implicit_return
   - implicitly_unwrapped_optional
-  - indentation_width
   - joined_default_parameter
   - last_where
   - legacy_multiple
@@ -58,7 +55,7 @@ opt_in_rules:
   - multiline_parameters
   - multiline_parameters_brackets
   - nimble_operator
-  - no_magic_numbers
+  - non_overridable_class_declaration
   - nslocalizedstring_key
   - nslocalizedstring_require_bundle
   - number_separator
@@ -67,11 +64,13 @@ opt_in_rules:
   - overridden_super_call
   - override_in_extension
   - pattern_matching_keywords
+  - period_spacing
   - prefer_nimble
   - prefer_self_in_static_references
   - prefer_self_type_over_type_of_self
   - prefer_zero_over_explicit_init
   - private_subject
+  - private_swiftui_state
   - prohibited_interface_builder
   - prohibited_super_call
   - quick_discouraged_call
@@ -92,6 +91,7 @@ opt_in_rules:
   - toggle_bool
   - type_contents_order
   - unavailable_function
+  - unhandled_throwing_task
   - unneeded_parentheses_in_closure_argument
   - unowned_variable_capture
   - untyped_error_in_catch
@@ -105,6 +105,8 @@ opt_in_rules:
 
 # Opt-in rules (which are disabled by default) are in this list to explicitly indicate that they should not be enabled.
 disabled_rules:
+  - accessibility_label_for_image
+  - accessibility_trait_for_button
   - array_init
   - discouraged_optional_boolean
   - discouraged_optional_collection
@@ -115,12 +117,14 @@ disabled_rules:
   - explicit_top_level_acl
   - explicit_type_interface
   - file_header
+  - indentation_width
   - large_tuple
   - local_doc_comment
   - missing_docs
   - nesting
   - no_extension_access_modifier
   - no_grouping_extension
+  - no_magic_numbers
   - object_literal
   - prefixed_toplevel_constant
   - private_action
@@ -128,8 +132,10 @@ disabled_rules:
   - raw_value_for_camel_cased_codable_enum
   - required_deinit
   - required_enum_case
+  - sorted_enum_cases
   - strict_fileprivate
   - strong_iboutlet
+  - superfluous_else
   - todo
   - trailing_closure
 
