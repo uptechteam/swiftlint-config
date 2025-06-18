@@ -1,7 +1,8 @@
-# Revised for 0.54.0
+# Revised for 0.59.1
 # Rule Directory Reference - https://realm.github.io/SwiftLint/rule-directory.html
 opt_in_rules:
   - anonymous_argument_in_multiline_closure
+  - async_without_await
   - attributes
   - balanced_xctest_lifecycle
   - closure_body_length
@@ -32,6 +33,7 @@ opt_in_rules:
   - file_name
   - file_name_no_space
   - file_types_order
+  - final_test_case
   - first_where
   - flatmap_over_map_reduce
   - force_unwrapping
@@ -64,6 +66,7 @@ opt_in_rules:
   - overridden_super_call
   - override_in_extension
   - pattern_matching_keywords
+  - prefer_key_path
   - period_spacing
   - prefer_nimble
   - prefer_self_in_static_references
@@ -78,9 +81,11 @@ opt_in_rules:
   - quick_discouraged_pending_test
   - reduce_into
   - redundant_nil_coalescing
+  - redundant_self_in_closure
   - redundant_type_annotation
   - return_value_from_void_function
   - self_binding
+  - shorthand_argument
   - shorthand_optional_binding
   - single_test_class
   - sorted_first_last
@@ -89,7 +94,6 @@ opt_in_rules:
   - switch_case_on_newline
   - test_case_accessibility
   - toggle_bool
-  - type_contents_order
   - unavailable_function
   - unhandled_throwing_task
   - unneeded_parentheses_in_closure_argument
@@ -108,6 +112,7 @@ disabled_rules:
   - accessibility_label_for_image
   - accessibility_trait_for_button
   - array_init
+  - contrasted_opening_brace
   - discouraged_optional_boolean
   - discouraged_optional_collection
   - expiring_todo
@@ -122,10 +127,12 @@ disabled_rules:
   - local_doc_comment
   - missing_docs
   - nesting
+  - no_empty_block
   - no_extension_access_modifier
   - no_grouping_extension
   - no_magic_numbers
   - object_literal
+  - one_declaration_per_file
   - prefixed_toplevel_constant
   - private_action
   - private_outlet
@@ -138,6 +145,8 @@ disabled_rules:
   - superfluous_else
   - todo
   - trailing_closure
+  - type_contents_order
+  - unused_parameter
 
 analyzer_rules:
   - capture_variable
@@ -145,6 +154,18 @@ analyzer_rules:
   - unused_declaration
   - unused_import
 
+# Custom rules
+custom_rules:
+ restrict_cyrillic:
+  name: "Restrict Cyrillic Characters"
+  regex: "[ЄєҐґІіЇїЁёА-я]+"
+  message: "Cyrillic characters prohibited."
+  severity: error
+  match_kinds:
+   - comment
+   - identifier
+
+# Rules configuration
 closure_body_length:
   warning: 80
   error: 100
